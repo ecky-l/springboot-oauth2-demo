@@ -1,0 +1,9 @@
+server:
+  port: 8081
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://fcos-containers:8080/auth/realms/cop-demo-realm

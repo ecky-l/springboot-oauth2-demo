@@ -1,0 +1,38 @@
+---
+app:
+  resource-server-url: http://192.168.205.1:8081
+  proxy-host: fcos-containers
+  proxy-port: 6000
+
+spring:
+  main:
+    web-application-type: none
+    #banner-mode: off
+  security:
+    oauth2:
+      client:
+        registration:
+          cop-demo-jwt:
+            authorization-grant-type: client_credentials
+            client-authentication-method: private_key_jwt
+            client-id: cop-demo-client-jwt
+          cop-demo:
+            authorization-grant-type: client_credentials
+            client-authentication-method: client_secret_post
+            client-id: cop-demo-client
+            client-secret: nZi6cIE8oBPZgXQTN6u1eZQNJZshpNBt
+        provider:
+          cop-demo-jwt:
+            issuer-uri: http://fcos-containers:8080/auth/realms/cop-demo-realm
+          cop-demo:
+            issuer-uri: http://fcos-containers:8080/auth/realms/cop-demo-realm
+
+oauth2:
+  client-registration-key: cop-demo-jwt
+  cop-demo-jwt:
+    private-key: MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDLQ0RyFQkN3tKJX4Iy74TErjdi+lFne16I6TrbLxywIR4gaArerE8NxsbqSTtii8yN/PdyDF9MjQ5dZlC8uwC9Odug6ZrEj9Mj1eKW0ZLSqyPaZtzKS5+Ebq1N/gxdMtXiLWJGKpuRM/PEz4gZC80eYdiMrINqO4Fk0lRQBsAkX9yzXIorwPYou/yApnQewHbJP+n349NuoVrX9DNU9nJGf+6LRTAeYQK2ClZMzIdkSTbXQT9fB5o/X9B24Hc3ly0gtHdRyl065Hc7HxXzGUUB4PHA5eCpHedJlOISep/JhblJwxPoNKJMmP4ghJtjr8L2uwUCi4ZyOaBecfHBBw77AgMBAAECggEAP5/EsvkGpoLS4BE3Tf5PTslBqQe1p3CkfLKUq7spfbBAH+CxVlYVQLix1vApWIVt+Bvw0JAy3GFi17WJHCpk5tZPeyTkPxbN/m+ax56+GJddV6XPArt9KRUDxl/5OssIzA1sr43yuBbM/RQBA+X/xLzX7eCqGfyaWhbEMXCLgFa6VHTSpCuYkAPbVfdkZRnQg5uCRSUgGl4GwpZYrxzgZplshH4iizi4wXkIwrqfHH/R8ZSEXONrDEHle+Dl3Ic97piifP4zHLquKwpaGmOWwP8zjxv8TYV9TriwI82G+6VmBALXtjT0Og77fITIPidJ6bJ0EMJVIU7YcgsvgWJeEQKBgQDXqVxjk01RImtVYIhuM/pHI2CYyZ9B389a3XD91N0RQrn+th4Yxmfq5TwG7K18l/3pGx5H9AjZPKk07AQ8HWg4UvEKoc81wnLUOs4UGWBV00Leg5V8FYyOqlVVUNKuEgAngMcC3A1XM/7f1Tuh/n13XNNGdehf6e9eB7zUCdduBwKBgQDxSDU5U7Z/3cCM2KbdzXH7EUTM156HVMo/qkgqhn53m9kQ7cDyozt1SHW6rOBl7sZ3+OeqZzqnwa85G9CaeeLAhIC/J7lDI1AUynMJVCxHTbEDAzdXgRnb847uqazNI1AjLRUtqW8eYfcR2JJ3uVALi5MQGUx+6kcXrGUUX7uabQKBgE7EDHpR0mtPpuQH3cxiL4bL5Pvop8HnfFQzjJEorZUgSc49tcBWtp2UG9hrmPFokdQRk320I4c0IJizmthZ5TatFFxNvOBlpIre72Vn30d5YXLjnDU1qaBxlbkTS99Hs8a5wfXJaRXwZ6ZYuu7vg+OUg5W4eqaNSl+Nc+n9rjEBAoGBANU8SoVqfUxN70DKq9Y0HfqUDWi3Wkwh3Egdtn+WsygD3PeAF1iYeBCzxBABfqO3PUGEAUFwz764hqIC+f27oHEh6SKG+czi5YAqVzY0ZJlziO+vpPY5i1/+xSAZZjU5czZTPndHWYPRcmgcLX2PkbVSWdsNcLRtWf0LB53U6ViVAoGAJ8i+e1JzQzRaUn038Ms9KXqe9V7+sqc0pIeZmL9DjEN0IlVjDn43TKH8mSRb3xulelFT0Z1/3UD/Gs4WvJPPijlFLiZiE4IIC+zHpFqpusPdo5ANffDANQGyIKJ7pi6qx6rOCb6jH9apK/DnL5PTlzBCYpcSpen7NbcygE3/CPM=
+
+#logging:
+#  pattern:
+#    console: null
+

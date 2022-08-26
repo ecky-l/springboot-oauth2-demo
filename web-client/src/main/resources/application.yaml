@@ -1,0 +1,19 @@
+---
+app:
+  resource-server-url: http://192.168.205.1:8081
+  proxy-host: fcos-containers
+  proxy-port: 6000
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: cop-demo-client
+            client-secret: nZi6cIE8oBPZgXQTN6u1eZQNJZshpNBt
+            scope:
+              - openid
+        provider:
+          keycloak:
+            issuer-uri: http://fcos-containers:8080/auth/realms/cop-demo-realm
